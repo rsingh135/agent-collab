@@ -1,0 +1,39 @@
+{
+  "name": "agent-gc",
+  "private": true,
+  "packageManager": "pnpm@12.4.2",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev --parallel",
+    "check": "turbo run typecheck lint test",
+    "typecheck": "turbo run typecheck",
+    "lint": "turbo run lint",
+    "test": "turbo run test",
+    "format": "prettier --write .",
+    "db:up": "docker compose up -d postgres",
+    "db:migrate": "pnpm --filter @agent-gc/server db:migrate",
+    "e2e": "pnpm --filter @agent-gc/server build && tsx scripts/e2e.ts",
+    "fake-agent": "tsx scripts/fake-agent.ts",
+    "plugin-smoke": "pnpm --filter @agent-gc/plugin build && tsx scripts/plugin-smoke.ts"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.0",
+    "@types/node": "^22.19.0",
+    "eslint": "^9.39.0",
+    "prettier": "^3.6.2",
+    "tsx": "^4.20.6",
+    "turbo": "^2.6.0",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.46.0",
+    "vitest": "^3.2.4",
+    "@agent-gc/local": "workspace:*",
+    "@agent-gc/protocol": "workspace:*",
+    "ws": "^8.18.3",
+    "@types/ws": "^8.18.1",
+    "@modelcontextprotocol/sdk": "^1.21.0"
+  },
+  "type": "module"
+}
