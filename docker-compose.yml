@@ -1,0 +1,19 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: agent-gc-postgres
+    environment:
+      POSTGRES_USER: agentgc
+      POSTGRES_PASSWORD: agentgc
+      POSTGRES_DB: agentgc
+    ports:
+      - "5434:5432"
+    volumes:
+      - agent-gc-pg:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U agentgc"]
+      interval: 2s
+      timeout: 2s
+      retries: 20
+volumes:
+  agent-gc-pg:
