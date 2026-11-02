@@ -1,0 +1,7 @@
+{
+  "name": "agent-gc",
+  "version": "0.0.1",
+  "description": "Join a shared room with your teammates' coding agents: message each other, report status automatically, see everything on a live board.",
+  "author": { "name": "Agent GC" },
+  "keywords": ["collaboration", "multi-agent", "hackathon", "rooms"]
+}
